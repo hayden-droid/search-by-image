@@ -26,8 +26,9 @@ jobs:
           npm run build:prod:zip:edge
           npm run build:prod:zip:firefox
           npm run build:prod:zip:opera
-          ENABLE_CONTRIBUTIONS=false npm run build:prod:zip:safari
-          ENABLE_CONTRIBUTIONS=false npm run build:prod:zip:samsung
+          npm run build:prod:zip:safari
+          npm run build:prod:zip:samsung
+          
       - name: Hash artifacts
         run: sha256sum artifacts/*/*
         if: startsWith(github.ref, 'refs/tags/v')
@@ -59,9 +60,9 @@ jobs:
           tag_name: ${{ github.ref_name }}
           name: ${{ github.ref_name }}
           body: |
-            Download and install the extension from the [extension store](https://github.com/dessant/search-by-image#readme) of your browser.
+            Download and install the extension from the [extension store](https://github.com/hayden-droid/search-by-image#readme) of your browser.
 
-            Learn more about this release from the [changelog](https://github.com/dessant/search-by-image/blob/main/CHANGELOG.md#changelog).
+            Learn more about this release from the [changelog](https://github.com/hayden-droid/search-by-image/blob/main/CHANGELOG.md#changelog).
           files: artifacts/*/*
           fail_on_unmatched_files: true
           draft: true
